@@ -12,9 +12,9 @@ const Home = () => {
             <FibonacciForm onResult={setResult} />
 
             {result.length > 0 && (
-                <div>
-                <h2>Résultat :</h2>
-                <p>{result.join(", ")}</p>
+                <div className="result">
+                    <h2>Résultat :</h2>
+                    <p>{result.join(", ")}</p>
                 </div>
             )}
         </div>

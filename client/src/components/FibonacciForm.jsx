@@ -15,18 +15,27 @@ const FibonacciForm = ({ onResult }) => {
 
         try {
             const res = await fetch(`/api/fibonacci/${number}`);
-            const data = await res.json();
+            const contentType = res.headers.get("content-type");
 
             if (!res.ok) {
-                throw new Error(data.error || "Erreur serveur.");
+            const text = await res.text();
+            throw new Error(`Erreur ${res.status}: ${text}`);
             }
 
+            if (contentType && contentType.includes("application/json")) {
+            const data = await res.json();
             onResult(data.fibonacci);
-            toast.success("Suite calculée avec succès !")
+            toast.success("Suite calculée avec succès !");
+            } else {
+            throw new Error("Le serveur n'a pas renvoyé du JSON.");
+            }
+
         } catch (err) {
-            toast.error(err.message);
+            console.error("Erreur attrapée :", err);
+            toast.error("Erreur : " + err.message);
         }
-    }
+    };
+
 
     return (
         <form onSubmit={handleSubmit}>
