@@ -15,7 +15,7 @@ Une application fullstack permettant de calculer la suite de Fibonacci d’un no
 - Notifications de succès/erreur avec React Toastify
 - Requêtes sécurisées avec CORS
 - Composants React réutilisables
-- Stylisation avec Tailwind CSS
+- Stylisation avec CSS moderne
 
 ---
 
@@ -46,6 +46,6 @@ Une application fullstack permettant de calculer la suite de Fibonacci d’un no
 ### 1. Cloner le projet
 
 ```bash
-git clone https://github.com/votre-utilisateur/fibonacci-fullstack-app.git
-cd fibonacci-fullstack-app
+git@github.com:Josue-ui582/calculate-fibonacci.git
+cd calcule-fibonacci
 
